@@ -53,7 +53,7 @@ execute_step_2 = True
 execute_step_3 = True
 execute_step_4 = True
 
-# 控制是否只处理第一个文件(调试)
+# 控制是否只处理第一个文件(方便调试)
 single_file_debug_mode = True
 
 # 获取当前脚本的绝对路径
