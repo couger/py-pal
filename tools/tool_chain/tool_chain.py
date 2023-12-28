@@ -4,7 +4,8 @@
 MKF文件是某些老旧游戏（如《仙剑奇侠传》）中用于存储游戏资源的一种格式。
 通常，这些资源需要被解包并转换成标准格式以便查看或编辑。
 
-脚本使用 Python 的 subprocess 模块来调用外部工具，并通过 glob 模块来查找文件。
+此脚本只是使用一般规则对mkf进行解压，不适用于所有mkf。
+后续将对不同类型mkf针对性开发脚本。
 """
 
 
@@ -13,9 +14,11 @@ import os
 import subprocess
 import glob
 
+
 # 定义创建文件夹的函数
 def create_folder(folder_path):
     os.makedirs(folder_path, exist_ok=True)
+
 
 # 定义运行 demkf 工具的函数
 def run_demkf(python_executable, demkf_tool, mkf_file, output_dir):
@@ -23,15 +26,18 @@ def run_demkf(python_executable, demkf_tool, mkf_file, output_dir):
         [python_executable, demkf_tool, "-p", "yj1", mkf_file], cwd=output_dir
     )
 
+
 # 定义运行 deyj1 工具的函数
 def run_deyj1(python_executable, deyj1_tool, yj1_file, output_dir):
     subprocess.run([python_executable, deyj1_tool, yj1_file, "-o", output_dir])
+
 
 # 定义运行 desmkf 工具的函数
 def run_desmkf(python_executable, desmkf_tool, smkf_file, output_dir):
     subprocess.run(
         [python_executable, desmkf_tool, "-p", "rle", smkf_file], cwd=output_dir
     )
+
 
 # 定义运行 derle 工具的函数
 def run_derle(python_executable, derle_tool, rle_file, pat_file, output_dir):
@@ -46,6 +52,7 @@ def run_derle(python_executable, derle_tool, rle_file, pat_file, output_dir):
     subprocess.run(
         [python_executable, derle_tool, rle_file, "-o", output_dir, "-p", pat_file]
     )
+
 
 # 配置是否执行每个步骤
 execute_step_1 = True

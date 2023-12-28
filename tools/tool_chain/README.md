@@ -17,9 +17,11 @@
 ## 文件说明
 
 - palresearch_tools(修改过的palresearch项目中工具)
-- tool_chain.py(单线程)
-- tool_chain_concu.py(多线程并发，未实现)
-
+- tool_chain.py(按照一般规则解开所有mkf，单线程，对有些mkf不适用)
+<!-- - tool_chain_concu.py(多线程并发，未实现) -->
+- deSSS_html.py(将事件文件SSS.mkf解开，将16进制的代码使用表格呈现，且保存为HTML)
+- deSSS_table_descriptions.json(表格字段描述)
+- deSSS_table_module.html(html模板)
 
 ## 开发环境
 
